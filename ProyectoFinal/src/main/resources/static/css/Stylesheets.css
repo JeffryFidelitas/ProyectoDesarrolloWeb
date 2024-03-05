@@ -31,3 +31,48 @@ body {
 section {
     margin-top: 50px;
 }
+
+.overlay {
+
+    top: 50%;
+    left: 50%;
+    width: 50vw;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente (negro con opacidad) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.notibox{
+    top: 50%;
+    left: 50%;
+    width: 90vw;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente (negro con opacidad) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.bg-warning {
+    background-color: #ffc107; /* Color de fondo amarillo (cambia según tus preferencias) */
+    padding: 10px; /* Añadir espacio interno alrededor del texto */
+    display: inline-block; /* Hacer que el cuadro sea del tamaño del contenido */
+    border-radius: 5px; /* Añadir esquinas redondeadas al cuadro */
+    margin: auto;
+}
+
+.content-container {
+    text-align: center;
+}

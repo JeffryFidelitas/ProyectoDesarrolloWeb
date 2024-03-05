@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>Toooo</title>        
+        <title>Nosotros</title>        
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <section th:replace="~{layout/plantilla :: section}"/>
+        <section th:replace="~{libro/fragmentos :: noticias1}"/>
+        <section th:replace="~{libro/fragmentos :: noticias2}"/>
+        <section th:replace="~{libro/fragmentos :: noticias3}"/>
+        <section th:replace="~{libro/fragmentos :: noticias4}"/>
         <footer th:replace="~{layout/plantilla :: footer}"/>          
     </body>
 </html>

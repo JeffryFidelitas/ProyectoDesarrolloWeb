@@ -26,9 +26,13 @@ public class libroController {
         return "/libro/listado";
     }
     
-    @GetMapping("/contacto")
-    public String hola(){
-        return "/libro/contacto";
+    @GetMapping("/nosotros")
+    public String nosotros(){
+        return "/libro/nosotros";
     }
     
+    @GetMapping("/noticias")
+    public String noticias(){
+        return "/libro/noticias";
+    }
 }
