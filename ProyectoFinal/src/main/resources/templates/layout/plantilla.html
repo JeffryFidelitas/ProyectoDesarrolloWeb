@@ -2,21 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
-        <title>[[#{aplicacion.titulo}]]</title>
+        <title>FideGames</title>
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-        <link href="/css/Stylesheets.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>   
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
     </head>
-    <body th:fragment="body1">
+    <body>
         <header th:fragment="header" class="header">
             <div class="container">
                 <div class="row">
                     <div class="col-3 text-left py-3">
-                        <img src="css/images/logo.png" class="img-fluid" style="width: 150px; height: auto;">
+                        <a href='/'><img src="/images/logo.png" class="img-fluid" style="width: 150px; height: auto;"></a>
+                        
                     </div>
                     <div class="col-3 d-flex align-items-center">
                         <form class="d-flex" role="search">
@@ -37,12 +38,11 @@
                             <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/usuario/listado}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" >
                                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                                     </svg></a></li>
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/libro/listado}">[[#{plantilla.boton1}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/libro/listado}">[[#{plantilla.boton2}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/usuario/listado}">[[#{plantilla.boton3}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/libro/nosotros}">[[#{plantilla.boton4}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/libro/noticias}">[[#{plantilla.boton5}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/usuario/listado}">[[#{plantilla.boton6}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/games}">[[#{plantilla.button1}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/emulators}">[[#{plantilla.button2}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/tutorials}">[[#{plantilla.button3}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/news}">[[#{plantilla.button4}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-menu-link nav-link fs-5 text-light btn btn-outline-warning border-0 btn-sm" th:href="@{/about}">[[#{plantilla.button5}]]</a></li>
                         </ul>
                         <div class="col-md-3">
                             <ul class="navbar-nav">                                
@@ -54,7 +54,7 @@
                 </div>
             </nav>
         </header>
-        <section th:fragment="section">
+        <section th:fragment="main-page">
             <div class="container-fluid video-container">
                 <div class="row">
                     <div class="col-lg-4">
@@ -85,7 +85,7 @@
             <div class="container">
                 <div class="col">
                     <p class="lead text-center">
-                        &COPY <strong>[[#{plantilla.derechos}]]</strong>
+                        &COPY <strong>[[#{plantilla.rights}]]</strong>
                     </p>
                 </div>
             </div>

@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package libreria.demo;
+package com.ProyectoFinal.ProyectoFinal;
 
 import java.util.Locale;
 import org.springframework.context.MessageSource;
