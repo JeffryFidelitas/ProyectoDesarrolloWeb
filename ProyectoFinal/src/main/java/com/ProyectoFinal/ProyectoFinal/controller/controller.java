@@ -41,4 +41,9 @@ public class controller {
     public String noticias(){
         return "/news";
     }
+    
+    @GetMapping("/contact")
+    public String contacto(){
+        return "/contact";
+    }
 }
