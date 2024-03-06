@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>FideGames</title>        
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <section class="main-section">
+            <div class='header-title'>
+                <h1 class="bg-warning">[[#{games.title}]]</h1>
+            </div>
+            <div th:if="${games != null and !games.empty}">
+                <div id="gamesContainer">
+                    <a class="game-small" th:each="game, contador : ${games}" th:href="'games/' + ${game.id}">
+                        <img th:src="'/images/games/' + ${game.id}" />
+                        <div id="info">
+                            <h2>[[${game.name}]]</h2>
+                            <h3>[[${game.emulator}]] | [[${game.year}]]</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <footer th:replace="~{layout/plantilla :: footer}"/>          
+    </body>
+</html> 
