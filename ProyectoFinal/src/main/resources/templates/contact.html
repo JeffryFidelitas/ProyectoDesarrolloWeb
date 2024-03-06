@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>FideGames</title>        
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <section>
+            <div class="container">
+                <form action="/enviar" method="post" class="col-md-6 mx-auto">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label text-warning fw-bold">[[#{con.nom}]]</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label text-warning fw-bold">[[#{con.corr}]]</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label text-warning fw-bold">[[#{con.mes}]]</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning">[[#{con.env}]]</button>
+                </form>
+            </div>
+        </section>
+        <footer th:replace="~{layout/plantilla :: footer}"/>          
+    </body>
+</html> 
