@@ -46,4 +46,9 @@ public class controller {
     public String contacto(){
         return "/contact";
     }
+    
+    @GetMapping("/tutorials")
+    public String tutoriales(){
+        return "/tutorials";
+    }
 }
