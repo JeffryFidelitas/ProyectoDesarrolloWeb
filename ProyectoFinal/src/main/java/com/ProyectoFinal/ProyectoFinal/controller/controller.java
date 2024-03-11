@@ -51,4 +51,9 @@ public class controller {
     public String tutoriales(){
         return "/tutorials";
     }
+    
+    @GetMapping("/emulators")
+    public String emuladores(){
+        return "/emulators";
+    }
 }
