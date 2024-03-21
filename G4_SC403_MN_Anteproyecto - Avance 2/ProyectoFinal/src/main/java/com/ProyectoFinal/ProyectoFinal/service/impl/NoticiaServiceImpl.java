@@ -26,4 +26,16 @@ public class NoticiaServiceImpl implements NoticiaService {
         var noticia=noticiaDao.findById(id).orElse(null);
         return noticia;
     }
+
+    @Override
+    @Transactional
+    public void save(Noticia noticia) {
+        noticiaDao.save(noticia);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Noticia noticia) {
+        noticiaDao.delete(noticia);
+    }
 }
