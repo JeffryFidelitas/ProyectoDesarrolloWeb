@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.ProyectoFinal.ProyectoFinal.domain.Noticia;
 import com.ProyectoFinal.ProyectoFinal.service.NoticiaService;
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 public class NoticiaServiceImpl implements NoticiaService {
@@ -22,9 +23,8 @@ public class NoticiaServiceImpl implements NoticiaService {
     }
 
     @Override
-    public Noticia getNoticia(long id) {
-        var noticia=noticiaDao.findById(id).orElse(null);
-        return noticia;
+    public Noticia getNoticia(Noticia noticia) {
+        return noticiaDao.findById(noticia.getId()).orElse(null);
     }
 
     @Override
