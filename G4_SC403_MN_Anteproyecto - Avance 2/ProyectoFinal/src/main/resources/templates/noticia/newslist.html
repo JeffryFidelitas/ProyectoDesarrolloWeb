@@ -6,32 +6,12 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <section>
-            <div>
-                <div class="content-container">
-                    <h1 class="bg-warning">[[#{frag.noti}]]</h1>
-                </div>
-                <div class="notibox">
-                    <div class="content">
-                    </div>
-                </div>
-            </div>
-            <div class="notibox">
-                <div class="content">
-
-                </div>
-            </div>
-            <div class="notibox">
-                <div class="content">
-
-                </div>
-            </div>
-            <div class="notibox">
-                <div class="content">
-
-                </div>
-            </div>
-        </section>
+        <div class="content-container">
+            <h1 class="bg-warning">[[#{frag.noti}]]</h1>
+        </div>
+        <section th:replace="~{noticia/helper :: AgregarNoticia}"/>
+        <section th:replace="~{noticia/helper :: ventanaNoticia}"/>
+        <section th:replace="~{noticia/helper :: listadoNoticia}"/>
 
         <footer th:replace="~{layout/plantilla :: footer}"/>          
     </body>

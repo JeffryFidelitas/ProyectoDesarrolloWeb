@@ -179,3 +179,25 @@ section {
     gap: 10px;
 }
 
+.noticia-container {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.titulo {
+    color: white;
+    margin-bottom: 40px;
+}
+
+.imagen {
+    max-width: 500px;
+    max-height: 500px;
+    margin-bottom: 40px;
+}
+
+.cuerpo {
+    color: white;
+    max-width: 300px; 
+    margin: 0 auto; 
+    font-weight: bold;
+}

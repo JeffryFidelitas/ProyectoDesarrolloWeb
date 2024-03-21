@@ -19,14 +19,14 @@ public class Noticia implements Serializable {
     @Column(name="imagen")
     private String imagen;
     @Column(name="titulo")
-    private int titulo;
+    private String titulo;
     @Column(name="cuerpo")
     private String cuerpo;
 
     public Noticia() {
     }
 
-    public Noticia(Long id, String imagen, int titulo, String cuerpo) {
+    public Noticia(Long id, String imagen, String titulo, String cuerpo) {
         this.id = id;
         this.imagen = imagen;
         this.titulo = titulo;
