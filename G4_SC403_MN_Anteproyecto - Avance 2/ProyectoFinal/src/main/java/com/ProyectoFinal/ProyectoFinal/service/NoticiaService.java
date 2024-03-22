@@ -2,6 +2,7 @@ package com.ProyectoFinal.ProyectoFinal.service;
 
 import com.ProyectoFinal.ProyectoFinal.domain.Noticia;
 import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface NoticiaService {
     // Se obtiene un listado de libros en un List

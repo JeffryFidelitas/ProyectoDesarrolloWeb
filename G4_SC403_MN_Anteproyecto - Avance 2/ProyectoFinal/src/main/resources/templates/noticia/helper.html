@@ -38,7 +38,7 @@
                             <h5 class="modal-title">[[#{noticia.ventana}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/noticia/guardar}" th:object="${categoria}"
+                        <form th:action="@{/noticia/guardar}" th:object="${Noticia}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
@@ -47,11 +47,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="titulo">[[#{noticia.cuerpo}]]</label>
-                                    <textarea class="form-control" name="Cuerpo" rows="3" required="true" ></textarea>
+                                    <textarea class="form-control" name="cuerpo" rows="3" required="true" ></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="imagen">[[#{noticia.rutaImagen}]]</label>
-                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                    <input class="form-control" type="file" name="imagen" onchange="readURL(this);"/>
                                     <img id="blah" src="#" height="200"/>
                                 </div>
                             </div>
@@ -68,7 +68,8 @@
         <section th:fragment="listadoNoticia" id="noticias">
             <div th:each="noticia : ${Noticias}" class="noticia-container">
                 <h2 th:text="${noticia.titulo}" class="titulo"></h2>
-                <img th:src="${noticia.imagen}" class="imagen" />
+                <!-- Uso del operador ternario para determinar el th:src -->
+                <img th:src="${noticia.imagen.startsWith('/') ? '@{' + noticia.imagen + '}' : noticia.imagen.startsWith('http') ? noticia.imagen : '/' + noticia.imagen}" class="imagen" />
                 <p th:text="${noticia.cuerpo}" class="cuerpo"></p>
             </div>
         </section>

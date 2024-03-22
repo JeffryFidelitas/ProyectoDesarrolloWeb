@@ -7,7 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.ProyectoFinal.ProyectoFinal.domain.Noticia;
 import com.ProyectoFinal.ProyectoFinal.service.NoticiaService;
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+import static jakarta.persistence.GenerationType.UUID;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import org.springframework.data.jpa.domain.JpaSort.Path;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class NoticiaServiceImpl implements NoticiaService {

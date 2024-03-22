@@ -37,16 +37,6 @@ public class controller {
         return "/about";
     }
     
-    @GetMapping("/news")
-    public String noticias(){
-        return "/news";
-    }
-    
-    @GetMapping("/contact")
-    public String contacto(){
-        return "/contact";
-    }
-    
     @GetMapping("/tutorials")
     public String tutoriales(){
         return "/tutorials";
