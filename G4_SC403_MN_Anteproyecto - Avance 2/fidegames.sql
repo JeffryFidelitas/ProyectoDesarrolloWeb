@@ -30,7 +30,7 @@ CREATE TABLE `contacto` (
   `correo` varchar(40) NOT NULL,
   `mensaje` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `contacto` (
 
 LOCK TABLES `contacto` WRITE;
 /*!40000 ALTER TABLE `contacto` DISABLE KEYS */;
+INSERT INTO `contacto` VALUES (1,'Alonso Perez Lopez','alopelo@gmail.com','Me gustaria recibir notificaciones de nuevos emuladores'),(2,'Nath Carrillo Garita','nathcargari@gmail.com','Podrian incluir un emulador de ps5'),(5,'Daniela Navarro Vargas','danivargas@gmail.com','Quisiera ver mas tutoriales de juegos');
 /*!40000 ALTER TABLE `contacto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +140,7 @@ CREATE TABLE `noticia` (
   `titulo` varchar(150) NOT NULL,
   `cuerpo` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +149,7 @@ CREATE TABLE `noticia` (
 
 LOCK TABLES `noticia` WRITE;
 /*!40000 ALTER TABLE `noticia` DISABLE KEYS */;
-INSERT INTO `noticia` VALUES (1,'https://media.vandal.net/i/1280x720/3-2024/20/202432011551779_1.jpg.webp','Metal Gear Solid 5: Ground Zeroes, el prologo de The Phantom Pain, cumple 10 años','Metal Gear Solid V: Ground Zeroes ha cumplido diez años. Se trata del prólogo\nde Metal Gear Solid V: The Phantom Pain y llegó tanto a PlayStation 4, Xbox\nOne y PC como a la generación anterior PlayStation 3 y Xbox 360. Los dos\nepisodios se lanzaron de manera conjunta en la edición Metal Gear Solid V: The\nDefinitive Experience'),(2,'https://media.vandal.net/i/1280x720/3-2024/19/202431912572483_1.jpg.webp','PS5 Pro tendría una potente tecnologia de reescalado: PSSR podría ofrecer 4K a 120 fps y 8K a 60 fps','La tecnología de reescalado utilizando inteligencia artificial PlayStation Spectral\nSuper Resolution podría suponer un paso decisivo para PlayStation a partir de\nPS5 Pro, el modelo mejorado de la consola actual de Sony del que se han filtrado\nlas características y que podría alcanzar las 120 imágenes por segundo en los\njuegos a 4 K y 60 FPS a 8K, según informa Insidergaming.'),(5,'lalalalalala','lalalalalalala','hahahahahahahah');
+INSERT INTO `noticia` VALUES (1,'https://media.vandal.net/i/1280x720/3-2024/20/202432011551779_1.jpg.webp','Metal Gear Solid 5: Ground Zeroes, el prologo de The Phantom Pain, cumple 10 años','Metal Gear Solid V: Ground Zeroes ha cumplido diez años. Se trata del prólogo\nde Metal Gear Solid V: The Phantom Pain y llegó tanto a PlayStation 4, Xbox\nOne y PC como a la generación anterior PlayStation 3 y Xbox 360. Los dos\nepisodios se lanzaron de manera conjunta en la edición Metal Gear Solid V: The\nDefinitive Experience'),(2,'https://media.vandal.net/i/1280x720/3-2024/19/202431912572483_1.jpg.webp','PS5 Pro tendría una potente tecnologia de reescalado: PSSR podría ofrecer 4K a 120 fps y 8K a 60 fps','La tecnología de reescalado utilizando inteligencia artificial PlayStation Spectral\nSuper Resolution podría suponer un paso decisivo para PlayStation a partir de\nPS5 Pro, el modelo mejorado de la consola actual de Sony del que se han filtrado\nlas características y que podría alcanzar las 120 imágenes por segundo en los\njuegos a 4 K y 60 FPS a 8K, según informa Insidergaming.');
 /*!40000 ALTER TABLE `noticia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,4 +197,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-21 14:43:49
+-- Dump completed on 2024-03-21 23:10:42
