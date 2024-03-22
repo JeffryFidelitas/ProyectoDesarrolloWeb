@@ -6,7 +6,7 @@
         <title>TechShop</title>
     </head>
     <body>
-<!-- 3 Sección de dropdown para crud de noticias -->
+        <!-- 3 Sección de dropdown para crud de noticias -->
         <section th:fragment="AgregarNoticia" >
             <div class="container">
                 <div class="row">
@@ -25,7 +25,7 @@
             </div>
         </section>
 
-<!-- 3 Sección de ventana modal para agregar noticias -->
+        <!-- 3 Sección de ventana modal para agregar noticias -->
         <section th:fragment="ventanaNoticia">
             <div id="agreganoti" 
                  class="modal fade" 
@@ -38,7 +38,7 @@
                             <h5 class="modal-title">[[#{noticia.ventana}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/categoria/guardar}" th:object="${categoria}"
+                        <form th:action="@{/noticia/guardar}" th:object="${categoria}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="titulo">[[#{noticia.cuerpo}]]</label>
-                                    <textarea class="form-control" name="titulo" rows="3" required="true" ></textarea>
+                                    <textarea class="form-control" name="Cuerpo" rows="3" required="true" ></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="imagen">[[#{noticia.rutaImagen}]]</label>
@@ -97,9 +97,12 @@
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <label for="descripcion">[[#{noticia.titulo}]]</label>
-                                                    <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}"required="true">
+                                                    <input type="text" class="form-control" name="descripcion" th:field="*{titulo}"required="true">
                                                 </div>
-                                                
+                                                <div class="mb-3">
+                                                    <label for="titulo">[[#{noticia.cuerpo}]]</label>
+                                                    <textarea class="form-control" name="Cuerpo" rows="3" required="true" ></textarea>
+                                                </div>
                                                 <div class="mb-3">
                                                     <label for="imagen">[[#{noticia.rutaImagen}]]</label>
                                                     <input class="form-control" type="file" name="imagenFile"onchange="readURL(this);" />
@@ -116,7 +119,7 @@
         </section>
 
 
-  <!-- 3 Sección para mostrar noticias modo admin -->
+        <!-- 3 Sección para mostrar noticias modo admin -->
         <section th:fragment="listadoNoticias" id="noti">
             <div class="container">
                 <div class="row">

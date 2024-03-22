@@ -19,9 +19,17 @@ public class Contacto implements Serializable {
     @Column(name="nombre")
     private String nombre;
     @Column(name="correo")
-    private int correo;
+    private String correo;
     @Column(name="mensaje")
     private String mensaje;
 
-     
+    public Contacto() {
+    }
+
+    public Contacto(Long id, String nombre, String correo, String mensaje) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.mensaje = mensaje;
+    }  
 }

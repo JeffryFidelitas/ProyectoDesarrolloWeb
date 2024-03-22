@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.ProyectoFinal.ProyectoFinal.service.gameService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @Slf4j
@@ -44,5 +47,11 @@ public class NoticiasController {
         noticia = noticiaService.getNoticia(noticia);
         model.addAttribute("Noticia", noticia);
         return "/noticia/mods";
+    }
+    
+    @PostMapping("/guardar")
+    public String categoriaGuardar(Noticia noticia) {        
+        noticiaService.save(noticia);
+        return "redirect:/noticia/newslist";
     }
 }

@@ -6,25 +6,27 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
+        <section th:replace="~{contacto/helper :: EliminarContacto}"/>
         <section>
             <div class="container">
-                <form action="/enviar" method="post" class="col-md-6 mx-auto">
+                <form action="/contacto/guardar" method="post" class="col-md-6 mx-auto">
                     <div class="mb-3">
                         <label for="nombre" class="form-label text-warning fw-bold">[[#{con.nom}]]</label>
-                        <input type="text" class="form-control" id="nombre">
+                        <input type="text" class="form-control" id="nombre" name="nombre" required="true">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label text-warning fw-bold">[[#{con.corr}]]</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <label for="email" class="form-label text-warning fw-bold">[[#{con.corr}]]</label>
+                        <input type="email" class="form-control" id="email" name="correo" required="true">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label text-warning fw-bold">[[#{con.mes}]]</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="mensaje" class="form-label text-warning fw-bold">[[#{con.mes}]]</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required="true"></textarea>
                     </div>
                     <button type="submit" class="btn btn-warning">[[#{con.env}]]</button>
                 </form>
             </div>
         </section>
+
         <footer th:replace="~{layout/plantilla :: footer}"/>          
     </body>
 </html> 

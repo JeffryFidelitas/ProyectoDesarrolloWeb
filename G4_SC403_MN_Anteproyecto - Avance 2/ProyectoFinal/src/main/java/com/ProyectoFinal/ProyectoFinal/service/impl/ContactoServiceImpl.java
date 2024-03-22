@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.ProyectoFinal.ProyectoFinal.domain.Noticia;
 import com.ProyectoFinal.ProyectoFinal.service.ContactoService;
 
 @Service
@@ -24,8 +23,20 @@ public class ContactoServiceImpl implements ContactoService {
     }
 
     @Override
-    public Contacto getContacto(long id) {
-        var noticia=contactoDao.findById(id).orElse(null);
-        return noticia;
+    public Contacto getContacto(Contacto contacto) {
+        return contactoDao.findById(contacto.getId()).orElse(null);
+        
+    }
+
+    @Override
+    @Transactional
+    public void delete(Contacto contacto) {
+        contactoDao.delete(contacto);
+    }
+
+    @Override
+    @Transactional
+    public void save(Contacto contacto) {
+        contactoDao.save(contacto);
     }
 }
