@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 CREATE DATABASE  IF NOT EXISTS `fidegames` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `fidegames`;
-=======
->>>>>>> ed4bb178ee2d7f00373d9ba4189b165cd7fa0894
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: fidegames
