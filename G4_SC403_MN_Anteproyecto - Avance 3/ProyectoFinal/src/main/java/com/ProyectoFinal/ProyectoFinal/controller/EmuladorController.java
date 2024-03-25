@@ -64,7 +64,7 @@ public class EmuladorController {
         this.resourceLoader = resourceLoader;
     }
     
-    private static final String UPLOAD_DIR = "src/main/resources/templates/emulador/imagenes";
+    private static final String UPLOAD_DIR = "src/main/resources/static/images/emulators";
 
     private final ResourceLoader resourceLoader;
     
