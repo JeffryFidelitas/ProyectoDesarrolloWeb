@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `fidegames` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `fidegames`;
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: fidegames
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,11 +53,11 @@ DROP TABLE IF EXISTS `emulador`;
 CREATE TABLE `emulador` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `consola` varchar(100) COLLATE utf8mb4_bin NOT NULL,
-  `year` varchar(4) COLLATE utf8mb4_bin DEFAULT NULL,
+  `consola` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `year` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `descarga` varchar(256) COLLATE utf8mb4_bin NOT NULL,
-  `imagen` varchar(256) COLLATE utf8mb4_bin DEFAULT NULL,
+  `descarga` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `imagen` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`nombre`),
   UNIQUE KEY `id_2` (`nombre`),
@@ -182,6 +182,40 @@ LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tutorial`
+--
+
+DROP TABLE IF EXISTS `tutorial`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tutorial` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(1024) NOT NULL,
+  `titulo` varchar(150) NOT NULL,
+  `cuerpo` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tutorial`
+--
+
+LOCK TABLES `tutorial` WRITE;
+/*!40000 ALTER TABLE `tutorial` DISABLE KEYS */;
+INSERT INTO `tutorial` VALUES (1,'images/subidas/todo-sobre-jpg-800x419.JPG','Tutorial PepsiMan','n'),(2,'images/subidas/mmhjhb.png','Tutorial PepsiMan','sddf'),(3,'images/subidas/mmhjhb.png','Tutorial PepsiMan','123');
+/*!40000 ALTER TABLE `tutorial` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'fidegames'
+--
+
+--
+-- Dumping routines for database 'fidegames'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -192,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-24 19:47:23
+-- Dump completed on 2024-03-27 18:27:28
