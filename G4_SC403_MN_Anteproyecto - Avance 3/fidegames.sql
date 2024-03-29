@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `fidegames` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `fidegames`;
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: fidegames
 -- ------------------------------------------------------
--- Server version	8.0.36
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -143,7 +143,7 @@ CREATE TABLE `noticia` (
   `titulo` varchar(150) NOT NULL,
   `cuerpo` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +196,7 @@ CREATE TABLE `tutorial` (
   `titulo` varchar(150) NOT NULL,
   `cuerpo` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +205,7 @@ CREATE TABLE `tutorial` (
 
 LOCK TABLES `tutorial` WRITE;
 /*!40000 ALTER TABLE `tutorial` DISABLE KEYS */;
-INSERT INTO `tutorial` VALUES (1,'images/subidas/todo-sobre-jpg-800x419.JPG','Tutorial PepsiMan','n'),(2,'images/subidas/mmhjhb.png','Tutorial PepsiMan','sddf'),(3,'images/subidas/mmhjhb.png','Tutorial PepsiMan','123');
+INSERT INTO `tutorial` VALUES (5,'images/subidas/mario.png','Vidas Infinitas Super Mario World',' 1. Primero deberás ingresar al nivel llamado ‘Donut Ghost House’,más popularmente conocido como la primera casa fantasma.\r\n 2. Antes de entrar asegúrate de que Mario o Luigi tenga la capa. De lo contrario, el truco no funcionará.\r\n 3. Una vez dentro del castillo embrujado, avanza una distancia considerable.\r\n 4. Da la vuelta y regresa a toda velocidad, cuando estás por llegar al inicio, pulsa el botón para volar.\r\n 5. Notarás que en la parte superior de la casa fantasma hay un hueco en el techo. Trata de ingresar por ese lugar.\r\n 6. Cuando te encuentres en la parte superior, simplemente avanza a toda velocidad, pero debes tener cuidado, ya que muchos fantasmas se pondrán en tu camino.\r\n 7. El camino se terminará y verás un vacío. No tengas miedo y salta.\r\n 8. Habrá una puerta que te permitirá completar el nivel. Ingresa y habrás abandonado el castillo embrujado.\r\n 9. Se abrirá un pequeño camino que lleva a un nivel desconocido. Ingresa a este nuevo mundo.\r\n 10. Verás cinco ladrillos que te darán una capa, la flor, un hongo, al dinosaurio Yoshi y una vida.\r\n 11. Cuando hayas recibido todos los premios, abandona el mundo. Luego vuelve a entrar y repite hasta que tengas una buena cantidad de vidas.');
 /*!40000 ALTER TABLE `tutorial` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-27 18:27:28
+-- Dump completed on 2024-03-29 15:01:19
