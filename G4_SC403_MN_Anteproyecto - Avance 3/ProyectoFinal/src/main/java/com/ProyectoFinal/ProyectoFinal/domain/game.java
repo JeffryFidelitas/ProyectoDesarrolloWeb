@@ -8,7 +8,7 @@ import lombok.Data;
 @Entity
 @Table(name="games")
 
-public class game implements Serializable {
+public class Game implements Serializable {
     
     private static final long serialVersionUID= 1L;
     
@@ -31,10 +31,10 @@ public class game implements Serializable {
     @Column(name="bios")
     private String bios;
 
-    public game() {
+    public Game() {
     }
 
-    public game(Long id, String created_at, int year, String emulator, String description, String name, String extension, String bios) {
+    public Game(Long id, String created_at, int year, String emulator, String description, String name, String extension, String bios) {
         this.id = id;
         this.created_at = created_at;
         this.year = year;

@@ -86,7 +86,7 @@ public class NoticiasController {
             Resource fileResource = resourceLoader.getResource("classpath:static/" + imageName);
             if (fileResource.exists()) {
                 return ResponseEntity.ok()
-                        .contentType(MediaType.IMAGE_JPEG) // Cambia el tipo de media según el tipo de imagen que estés utilizando
+                        .contentType(MediaType.IMAGE_PNG) // Cambia el tipo de media según el tipo de imagen que estés utilizando
                         .body(fileResource);
             } else {
                 return ResponseEntity.notFound().build();

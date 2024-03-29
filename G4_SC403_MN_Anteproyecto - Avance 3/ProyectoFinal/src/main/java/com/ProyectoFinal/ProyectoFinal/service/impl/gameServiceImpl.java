@@ -1,29 +1,41 @@
 package com.ProyectoFinal.ProyectoFinal.service.impl;
 
-import com.ProyectoFinal.ProyectoFinal.domain.game;
+import com.ProyectoFinal.ProyectoFinal.domain.Game;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.ProyectoFinal.ProyectoFinal.dao.gameDao;
-import com.ProyectoFinal.ProyectoFinal.service.gameService;
+import com.ProyectoFinal.ProyectoFinal.service.GameService;
+import com.ProyectoFinal.ProyectoFinal.dao.GameDao;
 @Service
-public class gameServiceImpl implements gameService {
+public class GameServiceImpl implements GameService {
     @Autowired
-    private gameDao gameDao;
+    private GameDao gameDao;
     
     
     @Transactional(readOnly=true)
     @Override
-    public List<game> getGames() {
+    public List<Game> getGames() {
         var lista=gameDao.findAll();
         return lista;
     }
     
     @Transactional(readOnly=true)
     @Override
-    public game getGame(long id) {
+    public Game getGame(long id) {
         var game=gameDao.findById(id).orElse(null);
         return game;
+    }
+    
+    @Transactional
+    @Override
+    public Game save(Game game) {
+       return gameDao.save(game);
+    }
+    
+    @Transactional
+    @Override
+    public void delete(Game game) {
+        gameDao.delete(game);
     }
 }

@@ -40,7 +40,7 @@ public class TutorialesController {
     @GetMapping("/listado")
     public String inicio2(Model model) {
         var tutoriales = tutorialService.getTutoriales();
-        model.addAttribute("Tutoriales", tutoriales);
+        model.addAttribute("tutoriales", tutoriales);
         return "/tutorial/listado";
     }
 
@@ -53,7 +53,7 @@ public class TutorialesController {
     @GetMapping("/modificar/{id}")
     public String tutoModificar(Tutorial tutorial, Model model) {
         tutorial = tutorialService.getTutorial(tutorial);
-        model.addAttribute("Tutorial", tutorial);
+        model.addAttribute("tutorial", tutorial);
         return "/tutorial/mods";
     }
 
@@ -86,7 +86,7 @@ public class TutorialesController {
             Resource fileResource = resourceLoader.getResource("classpath:static/" + imageName);
             if (fileResource.exists()) {
                 return ResponseEntity.ok()
-                        .contentType(MediaType.IMAGE_JPEG) // Cambia el tipo de media según el tipo de imagen que estés utilizando
+                        .contentType(MediaType.IMAGE_PNG) // Cambia el tipo de media según el tipo de imagen que estés utilizando
                         .body(fileResource);
             } else {
                 return ResponseEntity.notFound().build();

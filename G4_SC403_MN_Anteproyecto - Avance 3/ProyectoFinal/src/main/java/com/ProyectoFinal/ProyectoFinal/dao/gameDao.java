@@ -1,9 +1,9 @@
 package com.ProyectoFinal.ProyectoFinal.dao;
 
-import com.ProyectoFinal.ProyectoFinal.domain.game;
+import com.ProyectoFinal.ProyectoFinal.domain.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface gameDao extends JpaRepository <game,Long>{
+public interface GameDao extends JpaRepository <Game,Long>{
     
 }
 

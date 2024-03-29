@@ -1,10 +1,12 @@
 package com.ProyectoFinal.ProyectoFinal.service;
 
-import com.ProyectoFinal.ProyectoFinal.domain.game;
+import com.ProyectoFinal.ProyectoFinal.domain.Game;
 import java.util.List;
 
-public interface gameService {
+public interface GameService {
     // Se obtiene un listado de libros en un List
-    public List<game> getGames();
-    public game getGame(long id);
+    public List<Game> getGames();
+    public Game getGame(long id);
+    public Game save(Game game);
+    public void delete(Game game);
 }

@@ -66,8 +66,8 @@
 
         <!-- 3 Sección principal para mostrar tutoriales -->
         <section th:fragment="listadoTutorial" id="tutoriales">
-            <div th:each="tutoriales : ${Tutoriales}" class="tutorial-container">
-                <h2 th:text="${tutoriales.titulo}" class="titulo"></h2>
+            <div th:each="tutorial : ${tutoriales}" class="noticia-container">
+                <h2 th:text="${tutorial.titulo}" class="titulo"></h2>
                 <!-- Uso del operador ternario para determinar el th:src -->
                 <img th:src="${tutorial.imagen.startsWith('/') ? '@{' + tutorial.imagen + '}' : tutorial.imagen.startsWith('http') ? tutorial.imagen : '/' + tutorial.imagen}" class="imagen" />
                 <p th:text="${tutorial.cuerpo}" class="cuerpo"></p>
@@ -129,7 +129,7 @@
                             <div class="card-header">
                                 <h4>[[#{frag.tuto}]]</h4>
                             </div>
-                            <div th:if="${Tutoriales != null and !Tutoriales.empty}">
+                            <div th:if="${tutoriales != null and !tutoriales.empty}">
                                 <table class="table table-striped table-hover">
                                     <thead class="table-dark">
                                         <tr><th>#</th>
@@ -139,19 +139,19 @@
                                             <th></th></tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="Tutorial, contador : ${Tutoriales}">
+                                        <tr th:each="tutorial, contador : ${tutoriales}">
                                             <td>[[${contador.count}]]</td>
-                                            <td>[[${Tutorial.imagen}]]</td>
-                                            <td>[[${Tutorial.titulo}]]</td>
-                                            <td>[[${Tutorial.cuerpo}]]</td>
-                                            <td><a th:href="@{/tutorial/eliminar/}+${Tutorial.id}"class="btn btn-danger"> <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
-                                                <a th:href="@{/tutorial/modificar/}+${Tutorial.id}"class="btn btn-success"><i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a>
+                                            <td>[[${tutorial.imagen}]]</td>
+                                            <td>[[${tutorial.titulo}]]</td>
+                                            <td>[[${tutorial.cuerpo}]]</td>
+                                            <td><a th:href="@{/tutorial/eliminar/}+${tutorial.id}"class="btn btn-danger"> <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
+                                                <a th:href="@{/tutorial/modificar/}+${tutorial.id}"class="btn btn-success"><i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-center p-2" th:if="${Toturiales == null or Tutoriales.empty}">
+                            <div class="text-center p-2" th:if="${toturiales == null or tutoriales.empty}">
                                 <span>[[#{lista.vacia}]]</span>
                             </div>
                         </div>

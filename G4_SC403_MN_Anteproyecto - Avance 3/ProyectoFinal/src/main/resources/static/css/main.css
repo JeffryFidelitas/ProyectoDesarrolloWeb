@@ -29,11 +29,10 @@ section {
 }
 
 .overlay {
-
     top: 50%;
     left: 50%;
     width: 50vw;
-    height: 90vh;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente (negro con opacidad) */
     display: flex;
     justify-content: center;
@@ -145,7 +144,17 @@ section {
 .header-title > * {
     max-width: 50vmax;
 }
-
+.header-title #options {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    top: 5px;
+}
 #game-details {
     display: flex;
     flex-direction: row;
@@ -197,7 +206,8 @@ section {
 
 .cuerpo {
     color: white;
-    max-width: 300px; 
+    max-width: 700px; 
     margin: 0 auto; 
     font-weight: bold;
+    
 }
