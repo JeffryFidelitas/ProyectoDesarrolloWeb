@@ -23,13 +23,16 @@
                                 <div class="form-group row my-3">
                                     <label class="col-md-5 my-auto text-center" for="password"><i class="fas fa-key" style="display: block; margin: 0 auto;"></i></label>
                                     <div class="col-md-7 my-auto"><input class="form-control" type="password" name="password" id="password"/></div></div>
-                                <div class="card-footer col text-center">
+                                <div class="col text-center p-2">
                                     <button class="btn btn-dark" style="background-color: purple; border-color: purple; color: white;" type="submit">
                                         <span class="btn"><i class="fas fa-sign-in-alt" style="color: white;"></i></span></button>
                                 </div>
                             </form> 
-                            <button class="btn btn-dark " style="background-color: purple; border-color: purple; color: white;" >
-                                    <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"  style="color: white;"></i></a></button>
+                            <div class="col text-center p-2"> <!-- Aquí se ha añadido la clase 'col text-center' -->
+                                <button class="btn btn-dark" style="background-color: purple; border-color: purple; color: white;">
+                                    <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus" style="color: white;"></i></a>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
