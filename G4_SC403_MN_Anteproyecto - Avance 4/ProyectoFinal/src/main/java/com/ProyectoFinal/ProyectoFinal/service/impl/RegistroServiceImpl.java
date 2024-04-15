@@ -62,37 +62,18 @@ public class RegistroServiceImpl implements RegistroService {
     public Model crearUsuario(Model model, Usuario usuario) 
             throws MessagingException {
         String mensaje;
-        if (!usuarioService.
-                existeUsuarioPorUsernameOCorreo(
-                        usuario.getUsername(), 
-                        usuario.getCorreo())) {
+        if (!usuarioService.existeUsuarioPorUsernameOCorreo(usuario.getUsername(),usuario.getCorreo())) {
             String clave = demeClave();
             usuario.setPassword(clave);
+            usuario.setRol(2);
             usuarioService.save(usuario);
             enviaCorreoActivar(usuario, clave);
-            mensaje = String.format(
-                    messageSource.getMessage(
-                            "registro.mensaje.activacion.ok", 
-                            null, 
-                            Locale.getDefault()),
-                    usuario.getCorreo());
+            mensaje = String.format(messageSource.getMessage("registro.mensaje.activacion.ok",null,Locale.getDefault()),usuario.getCorreo());
         } else {
-            mensaje = String.format(
-                    messageSource.getMessage(
-                            "registro.mensaje.usuario.o.correo", 
-                            null, 
-                            Locale.getDefault()),
-                    usuario.getUsername(), usuario.getCorreo());
+            mensaje = String.format(messageSource.getMessage("registro.mensaje.usuario.o.correo",null,Locale.getDefault()),usuario.getUsername(), usuario.getCorreo());
         }
-        model.addAttribute(
-                "titulo", 
-                messageSource.getMessage(
-                        "registro.activar", 
-                        null, 
-                        Locale.getDefault()));
-        model.addAttribute(
-                "mensaje", 
-                mensaje);
+        model.addAttribute("titulo", messageSource.getMessage("registro.activar",null,Locale.getDefault()));
+        model.addAttribute("mensaje",mensaje);
         return model;
     }
 
@@ -148,16 +129,9 @@ public class RegistroServiceImpl implements RegistroService {
     private String servidor;
 
     private void enviaCorreoActivar(Usuario usuario, String clave) throws MessagingException {
-        String mensaje = messageSource.getMessage(
-                "registro.correo.activar", 
-                null, Locale.getDefault());
-        mensaje = String.format(
-                mensaje, usuario.getNombre(), 
-                usuario.getApellidos(), servidor, 
-                usuario.getUsername(), clave);
-        String asunto = messageSource.getMessage(
-                "registro.mensaje.activacion", 
-                null, Locale.getDefault());
+        String mensaje = messageSource.getMessage("registro.correo.activar",null, Locale.getDefault());
+        mensaje = String.format(mensaje, usuario.getNombre(),usuario.getApellidos(),servidor,usuario.getUsername(), clave);
+        String asunto = messageSource.getMessage("registro.mensaje.activacion",null, Locale.getDefault());
         correoService.enviarCorreoHtml(usuario.getCorreo(), asunto, mensaje);
     }
 

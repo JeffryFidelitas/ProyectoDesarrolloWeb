@@ -63,7 +63,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((request) -> request.requestMatchers("/","/index","/js/**","/css/**","/images/**","/webjars/**","/games","/emulador/emulist","/tutorial/Tutolist","/noticia/newslist","/about","/contacto/contact","/contacto/guardar").permitAll()
+                .authorizeHttpRequests((request) -> request.requestMatchers("/**","/","/index","/js/**","/css/**","/images/**","/webjars/**","registro/nuevo","registro/activa","registro/salida","/registro/crearUsuario","/games","/emulador/emulist","/tutorial/Tutolist","/noticia/newslist","/about","/contacto/contact","/contacto/guardar").permitAll()
                 .requestMatchers(
                         "/", "/index", "/about",
                         "/carrito/**", "/pruebas/**", "/reportes/**",
@@ -71,11 +71,11 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/emulador/emulist", "/emulador/listado", "/emulador/modificar/**", "/emulador/eliminar/**", "/emulador/guardar",
                         "/games", "/games/agregar", "/games/modificar", "/games/eliminar",
                         "/noticia/newslist", "/noticia/listado", "/noticia/eliminar/**", "/noticia/modificar/**", "/noticia/guardar", "/noticia/guardar2/**",
-                        "/registro/nuevo", "/registro/recordar", "/registro/crearUsuario", "/registro/activacion/**", "/registro/activar", "/registro/recordarUsuario",
+                        "/registro/nuevo", "/registro/recordar", "/registro/crearUsuario", "/registro/activacion/**", "/registro/activar", "/registro/recordarUsuario","registro/salida",
                         "/tutorial/Tutolist", "/tutorial/listado", "/tutorial/eliminar/**", "/tutorial/modificar/**", "/tutorial/guardar", "/tutorial/guardar2/**",
                         "/usuario/listado", "/usuario/nuevo", "/usuario/guardar", "/usuario/eliminar/**", "/usuario/modificar/**"
                 ).hasRole("ADMIN")
-                .requestMatchers("/","/index","/js/**","/css/**","/images/**","/webjars/**","/games","/emulador/emulist","/tutorial/Tutolist","/noticia/newslist","/about","/contacto/contact","/contacto/guardar")
+                .requestMatchers("/","/index","/js/**","/css/**","/images/**","/webjars/**","/games","registro/nuevo","registro/salida","/emulador/emulist","/tutorial/Tutolist","/noticia/newslist","/about","/contacto/contact","/contacto/guardar")
                 .hasRole("USER")
                 )
                 .formLogin((form) -> form

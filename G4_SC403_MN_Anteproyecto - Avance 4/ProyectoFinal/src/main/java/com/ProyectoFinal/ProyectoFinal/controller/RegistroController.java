@@ -52,8 +52,7 @@ public class RegistroController {
     }
 
     @PostMapping("/activar")
-    public String activar(
-            Usuario usuario) {
+    public String activar(Usuario usuario) {
         registroService.activar(usuario);
         return "redirect:/";
     }
