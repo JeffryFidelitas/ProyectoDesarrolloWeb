@@ -80,8 +80,8 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <form method="POST"
-                          th:action="@{/noticia/guardar}" 
-                          th:object="${Noticias}"
+                          th:action="@{/noticia/guardar2/}+${noticia.id}"
+                          th:object="${Noticia}"
                           class="was-validated"                          
                           enctype="multipart/form-data">
                         <input type="hidden" name="id" th:field="*{id}"/>
@@ -97,17 +97,17 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
-                                                    <label for="descripcion">[[#{noticia.titulo}]]</label>
-                                                    <input type="text" class="form-control" name="descripcion" th:field="*{titulo}"required="true">
+                                                    <label for="titulo">[[#{noticia.titulo}]]</label>
+                                                    <input type="text" class="form-control" name="titulo" th:field="*{titulo}" required="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="titulo">[[#{noticia.cuerpo}]]</label>
-                                                    <textarea class="form-control" name="Cuerpo" rows="3" required="true" ></textarea>
+                                                    <label for="cuerpo">[[#{noticia.cuerpo}]]</label>
+                                                    <textarea class="form-control" name="cuerpo" rows="3" th:field="*{cuerpo}" required="true" ></textarea>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="imagen">[[#{noticia.rutaImagen}]]</label>
-                                                    <input class="form-control" type="file" name="imagenFile"onchange="readURL(this);" />
-                                                    <img id="blah" th:src="@{${Noticias.imagen}}" alt="your image" height="200"/>
+                                                    <input class="form-control" type="file" name="imagen" onchange="readURL(this);" required="true"/>
+                                                    <img id="blah" th:src="@{${Noticia.imagen}}" alt="An image needs to be upload" th:field="*{imagen}" height="200"/>
                                                 </div>
                                             </div>
                                         </div>

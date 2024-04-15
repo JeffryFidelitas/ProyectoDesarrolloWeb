@@ -80,8 +80,8 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <form method="POST"
-                          th:action="@{/tutorial/guardar}" 
-                          th:object="${Tutoriales}"
+                          th:action="@{/tutorial/guardar2/}+${tutorial.id}" 
+                          th:object="${tutorial}"
                           class="was-validated"                          
                           enctype="multipart/form-data">
                         <input type="hidden" name="id" th:field="*{id}"/>
@@ -97,17 +97,17 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
-                                                    <label for="descripcion">[[#{tutorial.titulo}]]</label>
-                                                    <input type="text" class="form-control" name="descripcion" th:field="*{titulo}"required="true">
+                                                    <label for="titulo">[[#{tutorial.titulo}]]</label>
+                                                    <input type="text" class="form-control" name="titulo" th:field="*{titulo}"required="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="titulo">[[#{tutorial.cuerpo}]]</label>
-                                                    <textarea class="form-control" name="Cuerpo" rows="3" required="true" ></textarea>
+                                                    <label for="cuerpo">[[#{tutorial.cuerpo}]]</label>
+                                                    <textarea class="form-control" name="Cuerpo" rows="3" th:field="*{cuerpo}" required="true" ></textarea>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="imagen">[[#{tutorial.rutaImagen}]]</label>
-                                                    <input class="form-control" type="file" name="imagenFile"onchange="readURL(this);" />
-                                                    <img id="blah" th:src="@{${Tutorial.imagen}}" alt="your image" height="200"/>
+                                                    <input class="form-control" type="file" name="imagen"  onchange="readURL(this);" required="true"/>
+                                                    <img id="blah" th:src="@{${tutorial.imagen}}" alt="An image needs to be upload" th:field="*{imagen}" height="200"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -171,7 +171,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">                                
-                        <a th:href="@{/tutorial/eliminar/}+${Tutorial.id}"
+                        <a th:href="@{/tutorial/eliminar/}+${tutorial.id}"
                            class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>

@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -79,6 +80,24 @@ public class NoticiasController {
 
         return "redirect:/noticia/newslist";
     }
+    
+    @PostMapping("/guardar2/{id}")
+    public String notiGuardar2(@PathVariable String id,@RequestParam String titulo,@RequestParam String cuerpo,@RequestParam("imagen") MultipartFile file) throws IOException {
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        Path path = Paths.get(UPLOAD_DIR + "/" + fileName);
+        Files.write(path, file.getBytes());
+
+        Noticia noticia = new Noticia();
+        noticia.setId(Long.valueOf(id)); // Establecer el ID del tutorial
+        noticia.setImagen("images/subidas/" + fileName); // Asignamos la ruta relativa de la imagen
+        noticia.setTitulo(titulo);
+        noticia.setCuerpo(cuerpo);
+
+        noticiaService.save(noticia); // Guardar el tutorial con la nueva imagen
+
+        return "redirect:/noticia/newslist";
+    }
+    
 
     @GetMapping("/images/subidas/{imageName:.+}")
     public ResponseEntity<Resource> getImage(@PathVariable String imageName) {

@@ -2,6 +2,7 @@ package com.ProyectoFinal.ProyectoFinal.controller;
 
 import com.ProyectoFinal.ProyectoFinal.domain.Tutorial;
 import com.ProyectoFinal.ProyectoFinal.service.TutorialService;
+import java.util.UUID;
 import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class TutorialesController {
     @GetMapping("/Tutolist")
     public String inicio(Model model) {
         var tutoriales = tutorialService.getTutoriales();
-        model.addAttribute("tutoriales",tutoriales);
+        model.addAttribute("tutoriales", tutoriales);
         return "/tutorial/Tutolist";
     }
 
@@ -61,7 +62,7 @@ public class TutorialesController {
 
     private final ResourceLoader resourceLoader;
 
-    public TutorialesController (ResourceLoader resourceLoader ) {
+    public TutorialesController(ResourceLoader resourceLoader) {
         this.resourceLoader = resourceLoader;
     }
 
@@ -76,6 +77,23 @@ public class TutorialesController {
         tutorial.setTitulo(titulo);
         tutorial.setCuerpo(cuerpo);
         tutorialService.save(tutorial);
+
+        return "redirect:/tutorial/Tutolist";
+    }
+
+    @PostMapping("/guardar2/{id}")
+    public String tutoGuardar(@PathVariable String id,@RequestParam String titulo,@RequestParam String cuerpo,@RequestParam("imagen") MultipartFile file) throws IOException {
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        Path path = Paths.get(UPLOAD_DIR + "/" + fileName);
+        Files.write(path, file.getBytes());
+
+        Tutorial tutorial = new Tutorial();
+        tutorial.setId(Long.valueOf(id)); // Establecer el ID del tutorial
+        tutorial.setImagen("images/subidas/" + fileName); // Asignamos la ruta relativa de la imagen
+        tutorial.setTitulo(titulo);
+        tutorial.setCuerpo(cuerpo);
+
+        tutorialService.save(tutorial); // Guardar el tutorial con la nueva imagen
 
         return "redirect:/tutorial/Tutolist";
     }
