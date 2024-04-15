@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
         <title>FideGames</title>        
     </head>
@@ -10,7 +11,7 @@
             <div class='header-title'>
                 <h1 class="bg-warning">[[#{juego.juegos}]]</h1>
                 <div id="options">
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addgame">[[#{accion.agregar}]]</button>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addgame" sec:authorize="hasRole('ROLE_ADMIN')" >[[#{accion.agregar}]]</button>
                 </div>
             </div>
             <div th:if="${games != null and !games.empty}">
