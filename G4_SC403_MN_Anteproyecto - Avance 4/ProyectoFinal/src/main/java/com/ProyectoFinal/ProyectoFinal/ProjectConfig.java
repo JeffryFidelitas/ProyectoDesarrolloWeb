@@ -63,24 +63,18 @@ public class ProjectConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((request) -> request.requestMatchers("/**","/","/index","/js/**","/css/**","/images/**","/webjars/**","registro/nuevo","registro/activa","registro/salida","/registro/crearUsuario","/games","/emulador/emulist","/tutorial/Tutolist","/noticia/newslist","/about","/contacto/contact","/contacto/guardar").permitAll()
-                .requestMatchers(
-                        "/", "/index", "/about",
-                        "/carrito/**", "/pruebas/**", "/reportes/**",
-                        "/registro/**", "/js/**","/css/**","/images/**","/webjars/**","/contacto/list", "/contacto/guardar", "/contacto/eliminar/**", "/contacto/contact",
+                .authorizeHttpRequests((request) -> request.requestMatchers("/errores/**","/**","/","/index","/js/**","/css/**","/images/**","/webjars/**","/contacto/contact","/contacto/guardar").permitAll()
+                        .requestMatchers("/games","registro/nuevo","registro/salida","/emulador/emulist","/tutorial/Tutolist","/noticia/newslist","/about")
+                        .hasRole("USER")
+                        .requestMatchers(
+                        "/contacto/list", "/contacto/eliminar/**",
                         "/emulador/emulist", "/emulador/listado", "/emulador/modificar/**", "/emulador/eliminar/**", "/emulador/guardar",
                         "/games", "/games/agregar", "/games/modificar", "/games/eliminar",
                         "/noticia/newslist", "/noticia/listado", "/noticia/eliminar/**", "/noticia/modificar/**", "/noticia/guardar", "/noticia/guardar2/**",
                         "/registro/nuevo", "/registro/recordar", "/registro/crearUsuario", "/registro/activacion/**", "/registro/activar", "/registro/recordarUsuario","registro/salida",
                         "/tutorial/Tutolist", "/tutorial/listado", "/tutorial/eliminar/**", "/tutorial/modificar/**", "/tutorial/guardar", "/tutorial/guardar2/**",
                         "/usuario/listado", "/usuario/nuevo", "/usuario/guardar", "/usuario/eliminar/**", "/usuario/modificar/**"
-                ).hasRole("ADMIN")
-                .requestMatchers("/","/index","/js/**","/css/**","/images/**","/webjars/**","/games","registro/nuevo","registro/salida","/emulador/emulist","/tutorial/Tutolist","/noticia/newslist","/about","/contacto/contact","/contacto/guardar")
-                .hasRole("USER")
-                )
-                .formLogin((form) -> form
-                .loginPage("/login").permitAll())
-                .logout((logout) -> logout.permitAll());
+                ).hasRole("ADMIN")).formLogin((form) -> form.loginPage("/login").permitAll()).logout((logout) -> logout.permitAll());
         return http.build();
     }
 
