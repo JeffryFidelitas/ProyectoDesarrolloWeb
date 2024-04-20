@@ -22,6 +22,13 @@ public class GameServiceImpl implements GameService {
     
     @Transactional(readOnly=true)
     @Override
+    public List<Game> getGamesByNameContaining(String nombre) {
+        var lista=gameDao.findByNameContaining(nombre);
+        return lista;
+    }
+    
+    @Transactional(readOnly=true)
+    @Override
     public Game getGame(long id) {
         var game=gameDao.findById(id).orElse(null);
         return game;
@@ -38,4 +45,5 @@ public class GameServiceImpl implements GameService {
     public void delete(Game game) {
         gameDao.delete(game);
     }
+    
 }

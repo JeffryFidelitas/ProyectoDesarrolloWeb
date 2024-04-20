@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,8 +27,16 @@ public class GameController {
     private GameService gameService;
     
     @GetMapping("/games")
-    public String games(Model model) {
-        var games = gameService.getGames();
+    public String games(@RequestParam(value = "s", required = false) String search, Model model) {
+        List<Game> games;
+        if (search != null && !search.isEmpty()) {
+            games = gameService.getGamesByNameContaining(search);
+        }
+        else {
+            games = gameService.getGames();
+        }
+        
+        
         model.addAttribute("games", games);
         return "/games";
     }
