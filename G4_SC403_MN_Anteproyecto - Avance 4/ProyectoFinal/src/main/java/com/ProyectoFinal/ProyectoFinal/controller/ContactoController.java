@@ -34,7 +34,7 @@ public class ContactoController {
         contacto.setCorreo(correo);
         contacto.setMensaje(mensaje);
         contactoService.save(contacto);
-        return "redirect:/contacto/contact";
+        return "redirect:/index";
     }
 
     @GetMapping("/eliminar/{id}")

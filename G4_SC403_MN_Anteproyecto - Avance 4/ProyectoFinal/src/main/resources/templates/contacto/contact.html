@@ -10,7 +10,7 @@
         <section th:replace="~{contacto/helper :: EliminarContacto}"/>
         <section>
             <div class="container">
-                <form action="/contacto/guardar" method="post" class="col-md-6 mx-auto">
+                <form th:action="@{/contacto/guardar}" th:object="${Contacto}" method="POST" class="col-md-6 mx-auto">
                     <div class="mb-3">
                         <label for="nombre" class="form-label text-warning fw-bold">[[#{con.nom}]]</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required="true">
