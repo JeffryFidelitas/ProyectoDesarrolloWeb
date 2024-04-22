@@ -69,21 +69,32 @@ public class EmuladorController {
     private final ResourceLoader resourceLoader;
     
     @PostMapping("/guardar")
-    public String EmuGuardar(@RequestParam String nombre, @RequestParam String consola, @RequestParam String year, @RequestParam String descripcion, @RequestParam String descarga, @RequestParam("imagen") MultipartFile file) throws IOException {
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        Path path = Paths.get(UPLOAD_DIR + "/" + fileName);
-        Files.write(path, file.getBytes());
+    public String EmuGuardar(@RequestParam String nombre, @RequestParam String consola, @RequestParam String year, @RequestParam String descripcion, @RequestParam String descarga, @RequestParam String imagen) throws IOException {
         Emulador emulador = new Emulador();
         emulador.setNombre(nombre);
         emulador.setConsola(consola);
         emulador.setYear(year);
         emulador.setDescripcion(descripcion);
         emulador.setDescarga(descarga);
-        emulador.setImagen("emulador/imagenes/" + fileName);  // Aquí asignamos la ruta relativa de la imagen
+        emulador.setImagen(imagen);  // Aquí asignamos la ruta relativa de la imagen
         emuladorService.save(emulador);
         return "redirect:/emulador/emulist";
     }
-    @GetMapping("emulador/imagenes/{imageName}")
+    @PostMapping("/guardar/{id}")
+    public String EmuGuardar(@PathVariable String id, @RequestParam String nombre, @RequestParam String consola, @RequestParam String year, @RequestParam String descripcion, @RequestParam String descarga, @RequestParam String imagen) throws IOException {
+        Emulador emulador = new Emulador();
+        emulador.setId(Long.valueOf(id));
+        emulador.setNombre(nombre);
+        emulador.setConsola(consola);
+        emulador.setYear(year);
+        emulador.setDescripcion(descripcion);
+        emulador.setDescarga(descarga);
+        emulador.setImagen(imagen);  // Aquí asignamos la ruta relativa de la imagen
+        emuladorService.save(emulador);
+        return "redirect:/emulador/emulist";
+    }
+    
+    /*@GetMapping("emulador/imagenes/{imageName}")
     public ResponseEntity<Resource> getImage(@PathVariable String imageName) {
         try {
             Resource fileResource = resourceLoader.getResource("classpath:static/templates/emulador/" + imageName);
@@ -98,5 +109,5 @@ public class EmuladorController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+    */
 }

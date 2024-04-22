@@ -64,8 +64,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="imagen">[[#{emulador.imagen}]]</label>
-                                    <input class="form-control" type="file" name="imagen" onchange="readURL(this);"/>
-                                    <img id="blah" src="#" height="200"/>
+                                    <input type="text" class="form-control" name="imagen" required="true"/>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -91,7 +90,7 @@
                             <div class="card-body">
                                 <h2 class="card-title" style='color: black'>[[${emulador.nombre}]]<br></br>[[${emulador.consola}]]<br></br>[[${emulador.year}]]</h2>
                               <p class="card-text" style='color: black'>[[${emulador.descripcion}]]</p>
-                              <a type="button" class="btn btn-warning" th:href=${emulador.descarga} sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">Descarga</a>
+                              <a type="button" class="btn btn-warning" th:href=${emulador.descarga} sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">[#{emulador.descargar}]]</a>
             </div>
             </div>
             </div>
@@ -106,8 +105,9 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <form method="POST"
-                          th:action="@{/emulador/guardar}" 
+                          
                           th:object="${Emulador}"
+                          th:action="@{/emulador/guardar/}+${Emulador.id}" 
                           class="was-validated"                          
                           enctype="multipart/form-data">
                         <input type="hidden" name="id" th:field="*{id}"/>
@@ -144,10 +144,9 @@
                                                     <input type="text" class="form-control" name="descarga" th:field="*{descarga}"required="true">
                                                 </div>
                                                 
-                                                <div class="mb-3">
-                                                    <label for="imagen">[[#{emulador.imagen}]]</label>
-                                                    <input class="form-control" type="file" name="imagen" th:field="*{imagen}" onchange="readURL(this);"/>
-                                                    <img id="blah" src="#" height="200"/>
+                                               <div class="mb-3">
+                                                    <label for="imagen">[[#{emulador.consola}]]</label>
+                                                    <input type="text" class="form-control" name="imagen" th:field="*{imagen}"required="true"/>
                                                 </div>
                                                 
                                             </div>
