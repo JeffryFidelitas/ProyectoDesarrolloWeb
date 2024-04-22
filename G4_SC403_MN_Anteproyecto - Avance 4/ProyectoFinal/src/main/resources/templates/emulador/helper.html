@@ -90,7 +90,7 @@
                             <div class="card-body">
                                 <h2 class="card-title" style='color: black'>[[${emulador.nombre}]]<br></br>[[${emulador.consola}]]<br></br>[[${emulador.year}]]</h2>
                               <p class="card-text" style='color: black'>[[${emulador.descripcion}]]</p>
-                              <a type="button" class="btn btn-warning" th:href=${emulador.descarga} sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">[#{emulador.descargar}]]</a>
+                              <a type="button" class="btn btn-warning" th:href=${emulador.descarga} sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">[[#{emulador.descargar}]]</a>
             </div>
             </div>
             </div>
