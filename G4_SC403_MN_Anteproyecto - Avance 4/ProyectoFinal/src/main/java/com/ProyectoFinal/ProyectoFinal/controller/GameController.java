@@ -121,7 +121,7 @@ public class GameController {
         Path path = Paths.get(UPLOAD_DIR + "/roms/" + game.getEmulator() + "/" + game.getId() + "." + game.getExtension());
         Files.write(path, rom.getBytes());
         
-        Files.createDirectories(Paths.get(UPLOAD_DIR + "/images/games/" + game.getId()));
+        //Files.createDirectories(Paths.get(UPLOAD_DIR + "/images/games/" + game.getId()));
         path = Paths.get(UPLOAD_DIR + "/images/games/" + game.getId());
         Files.write(path, imagen.getBytes());
         
