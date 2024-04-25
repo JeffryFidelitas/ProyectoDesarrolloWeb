@@ -8,6 +8,32 @@
     font-size: 15px;
 }
 
+.cuerpo {
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.noticia-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    max-width: 80%;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.titulo h2 {
+    color: black;
+}
+
 body {
     background: url('/images/fondo.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -193,8 +219,11 @@ section {
     margin-bottom: 100px;
 }
 
+.noticia-container .imagen {
+    border-radius: 20px;
+}
+
 .titulo {
-    color: white;
     margin-bottom: 40px;
 }
 
